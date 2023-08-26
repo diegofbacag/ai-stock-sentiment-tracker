@@ -1,10 +1,12 @@
 /*
-Proyecto exploratorio de data COVID-19: Per˙ / Continentes / Global
+Proyecto exploratorio de data COVID-19: Per√∫ / Continentes / Global
 
-Herramientas utilizadas: Joins, CTE's, Temp Tables, Windows Functions, Funciones Aggregate, CreaciÛn de Views, ConvesiÛn de Tipos de Data
+Herramientas utilizadas: Joins, CTE's, Temp Tables, Windows Functions, Funciones Aggregate, Creaci√≥n de Views, Convesi√≥n de Tipos de Data
+
+Data: https://ourworldindata.org/covid-deaths
 */
 
--- Data utilizada
+-- Data que se utilizar√°
 
 SELECT location, date, total_cases, new_cases, total_deaths, population
 FROM CovidDeaths
@@ -12,7 +14,7 @@ WHERE continent is not null
 ORDER by 1,2
 
 
----- PER⁄ ----
+---- PER√ö ----
 
 -- total de casos vs total muertes
 -- Muestra probabilidad de morir si se contrae COVID-19
@@ -24,17 +26,17 @@ AND continent IS NOT NULL
 ORDER BY 1,2
 
 
--- total de casos vs poblaciÛn
--- muestra que porcentaje de la poblaciÛn est· infectada con COVID
+-- total de casos vs poblaci√≥n
+-- muestra que porcentaje de la poblaci√≥n est√° infectada con COVID
 SELECT location, date, population, total_cases, (total_cases/population)*100 AS PorcentajePoblacionInfectada
 FROM CovidDeaths
 WHERE location = 'Peru'
 AND continent IS NOT NULL
 ORDER BY 1,2
 
----- POR PAÕS ----
+---- POR PA√çS ----
 
--- paises con mayor tasa de infecciÛn con respecto a su poblaciÛn
+-- paises con mayor tasa de infecci√≥n con respecto a su poblaci√≥n
 SELECT location, population, MAX(total_cases) AS MaximoTotalCasos, MAX((total_cases/population))*100 AS PorcentajePoblacionInfectada
 FROM CovidDeaths
 WHERE continent IS NOT NULL
@@ -68,8 +70,8 @@ WHERE continent IS NOT NULL
 ORDER BY 1,2
 
 
--- poblaciÛn total vs personas vacunadas
--- muestra el porcentaje de la poblaciÛn que ha recibido al menos una vacuna contra el COVID
+-- poblaci√≥n total vs personas vacunadas
+-- muestra el porcentaje de la poblaci√≥n que ha recibido al menos una vacuna contra el COVID
 
 -- query inicial
 SELECT dea.continent, dea.location, dea.date, dea.population, vac.new_vaccinations
