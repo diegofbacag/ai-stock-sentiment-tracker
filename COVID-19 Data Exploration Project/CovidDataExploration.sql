@@ -51,6 +51,7 @@ WHERE continent IS NOT NULL
 GROUP BY location
 ORDER BY TotalMuertes DESC
 
+	
 ---- POR CONTINENTE ----
 
 -- contienentes con mayor total de muertes
@@ -122,6 +123,7 @@ JOIN CovidVaccinations vac
 SELECT *, (AgregadoPersonasVacunadas/population)*100 AS AgregadoPorcentajePersonasVacunadas 
 FROM #PorcentajePersonasVacunadas
 
+	
 -- Creando VIEW para almacenar la data para visualizaciones posteriores
 
 CREATE VIEW PorcentajePersonasVacunadas AS
