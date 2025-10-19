@@ -55,6 +55,8 @@ Across the analyzed period:
 
 This reinforces that while sentiment can provide context, it’s not a sole indicator of market movement.
 
+![AI Stock Sentiment Bar Graph](https://diegofbacag.github.io/images/p0bargraph.png)
+
 ---
 
 ## 🚀 Future Work
